@@ -1,6 +1,4 @@
 
-<!-- Edit README.md, not index.md -->
-
 # Aider is AI pair programming in your terminal
 
 Aider lets you pair program with LLMs,
