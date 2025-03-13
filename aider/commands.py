@@ -959,6 +959,8 @@ class Commands:
         else:
             add = self.io.confirm_ask(f"Add {k_tokens:.1f}k tokens of command output to the chat?")
 
+        self.coder.check_for_file_mentions(combined_output)
+
         if add:
             num_lines = len(combined_output.strip().splitlines())
             line_plural = "line" if num_lines == 1 else "lines"
