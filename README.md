@@ -1,5 +1,5 @@
 
-# Aider is AI pair programming in your terminal
+# Maider, your AI programming pair in your terminal. Also known as modified aider.
 
 Aider lets you pair program with LLMs,
 to edit code in your local git repository.
