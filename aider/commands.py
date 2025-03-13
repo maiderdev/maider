@@ -4,6 +4,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import fnmatch
 from collections import OrderedDict
 from os.path import expanduser
 from pathlib import Path
@@ -679,7 +680,7 @@ class Commands:
             )
 
         # Add completions from the 'add' command
-        add_completions = self.completions_add()
+        add_completions = self.completions_add(with_folders=False)
         for completion in add_completions:
             if after_command in completion:
                 all_completions.append(
@@ -697,10 +698,13 @@ class Commands:
         for completion in sorted_completions:
             yield completion
 
-    def completions_add(self):
+    def completions_add(self, with_folders=True):
         files = set(self.coder.get_all_relative_files())
+        folders = {os.path.dirname(f) + '/' for f in files if os.path.dirname(f)}
         files = files - set(self.coder.get_inchat_relative_files())
         files = [self.quote_fname(fn) for fn in files]
+        if with_folders:
+            files.extend(folders)
         return files
 
     def glob_filtered_to_repo(self, pattern):
