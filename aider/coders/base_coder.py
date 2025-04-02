@@ -1519,11 +1519,12 @@ class Coder:
         if not interrupted:
             add_rel_files_message = self.check_for_file_mentions(content)
             if add_rel_files_message:
-                if self.reflected_message:
-                    self.reflected_message += "\n\n" + add_rel_files_message
-                else:
-                    self.reflected_message = add_rel_files_message
-                return
+                if self.io.confirm_ask("Do you want to re-prompt without edits (yes), or continue (no)?"):
+                    if self.reflected_message:
+                        self.reflected_message += "\n\n" + add_rel_files_message
+                    else:
+                        self.reflected_message = add_rel_files_message
+                    return
 
             try:
                 if self.reply_completed():

@@ -23,6 +23,8 @@ from aider.repo import ANY_GIT_ERROR
 from aider.run_cmd import run_cmd
 from aider.scrape import Scraper, install_playwright
 from aider.utils import is_image_file
+from aider.plugins.command_registry import CommandRegistry
+
 
 from .dump import dump  # noqa: F401
 
@@ -1633,3 +1635,5 @@ def main():
 if __name__ == "__main__":
     status = main()
     sys.exit(status)
+
+CommandRegistry.inject(Commands)
