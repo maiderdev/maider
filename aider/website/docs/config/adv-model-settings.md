@@ -612,6 +612,12 @@ cog.out("```\n")
 
 - name: gemini/gemini-2.5-pro-exp-03-25
   edit_format: diff-fenced
+  weak_model_name: gemini/gemini-2.0-flash
+  use_repo_map: true
+
+- name: gemini/gemini-2.5-pro-preview-03-25
+  edit_format: diff-fenced
+  weak_model_name: gemini/gemini-2.0-flash
   use_repo_map: true
 
 - name: gemini/gemini-exp-1114
@@ -962,8 +968,6 @@ cog.out("```\n")
   weak_model_name: openrouter/deepseek/deepseek-chat-v3-0324:free
   use_repo_map: true
   examples_as_sys_msg: true
-  extra_params:
-    max_tokens: 131072
   caches_by_default: true
   use_temperature: false
   editor_model_name: openrouter/deepseek/deepseek-r1:free
@@ -1022,6 +1026,7 @@ cog.out("```\n")
 
 - name: openrouter/google/gemini-2.5-pro-exp-03-25:free
   edit_format: diff-fenced
+  weak_model_name: openrouter/google/gemini-2.0-flash-exp:free
   use_repo_map: true
 
 - name: openrouter/google/gemma-3-27b-it
@@ -1097,6 +1102,11 @@ cog.out("```\n")
   accepts_settings:
   - reasoning_effort
 
+- name: openrouter/openrouter/quasar-alpha
+  edit_format: diff
+  use_repo_map: true
+  examples_as_sys_msg: true
+
 - name: openrouter/qwen/qwen-2.5-coder-32b-instruct
   edit_format: diff
   weak_model_name: openrouter/qwen/qwen-2.5-coder-32b-instruct
@@ -1166,6 +1176,10 @@ cog.out("```\n")
   weak_model_name: vertex_ai/claude-3-5-haiku@20241022
 
 - name: vertex_ai/gemini-2.5-pro-exp-03-25
+  edit_format: diff-fenced
+  use_repo_map: true
+
+- name: vertex_ai/gemini-2.5-pro-preview-03-25
   edit_format: diff-fenced
   use_repo_map: true
 
